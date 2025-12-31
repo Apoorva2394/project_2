@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: project2
-        image: apoorva2394/project2:dev # or :prod depending on env
+        run: docker build -t apoorva861/project_2:dev ./backend
         ports:
         - containerPort: 3000
 ---
