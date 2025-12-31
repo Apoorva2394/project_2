@@ -19,8 +19,8 @@ jobs:
 
     - name: Build & Push Image
       run: |
-        docker build -t apoorva861/project_2:prod -f backend/Dockerfile backend
-        docker push ${{ secrets.DOCKER_USERNAME }}/project2:prod
+        docker build -t apoorva861/project2:prod -f backend/Dockerfile backend
+        docker push apoorva861/project2:prod
 
     - name: Setup kubectl
       run: |

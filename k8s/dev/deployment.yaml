@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: apoorva861/project_2:dev
+        image: apoorva861/project2:dev
         ports:
         - containerPort: 3001
