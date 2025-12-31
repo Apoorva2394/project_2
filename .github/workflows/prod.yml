@@ -1,0 +1,33 @@
+name: Deploy to PROD
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  prod-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Login to Docker Hub
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login \
+        -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+    - name: Build & Push Image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/project2:prod .
+        docker push ${{ secrets.DOCKER_USERNAME }}/project2:prod
+
+    - name: Setup kubectl
+      run: |
+        mkdir -p ~/.kube
+        echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+    - name: Deploy to PROD
+      run: |
+        sed -i "s|DOCKER_USERNAME|${{ secrets.DOCKER_USERNAME }}|g" k8s/deployment-prod.yaml
+        kubectl apply -f k8s/deployment-prod.yaml
