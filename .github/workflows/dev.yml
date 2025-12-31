@@ -22,22 +22,27 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      # -------- Backend Image --------
       - name: Build & push backend image
         uses: docker/build-push-action@v5
         with:
           context: ./backend
+          file: ./backend/Dockerfile
           push: true
           tags: apoorva861/project2:dev
           platforms: linux/amd64,linux/arm64
 
+      # -------- Frontend Image --------
       - name: Build & push frontend image
         uses: docker/build-push-action@v5
         with:
           context: ./frontend
+          file: ./frontend/Dockerfile
           push: true
           tags: apoorva861/project2-frontend:dev
           platforms: linux/amd64,linux/arm64
 
+      # -------- Kubernetes Deploy --------
       - name: Configure kubeconfig
         run: |
           mkdir -p ~/.kube
