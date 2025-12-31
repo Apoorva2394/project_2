@@ -42,12 +42,10 @@ jobs:
           tags: apoorva861/project2-frontend:dev
           platforms: linux/amd64,linux/arm64
 
-      # -------- Kubernetes Deploy --------
-      - name: Configure kubeconfig
-        run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config
 
       - name: Skip deploy (local cluster)
         run: echo "Skipping kubectl apply — local cluster not reachable from CI"
+
+      - name: CI completed
+        run: echo "Images built and pushed. Local Kubernetes deploy is manual."
 
