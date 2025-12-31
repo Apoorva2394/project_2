@@ -1,77 +1,52 @@
-body {
-  margin: 0;
-  background: #f5f7fb;
+/* Card styling */
+.card {
+  background: #f9f9f9;       /* Slightly off-white for softer look */
+  padding: 25px;              /* a bit more padding */
+  border-radius: 12px;        /* slightly smaller radius */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);  /* stronger shadow */
+  transition: transform 0.2s; /* smooth hover effect */
 }
 
-.app {
-  font-family: Arial, sans-serif;
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px;
-  text-align: center;
+.card:hover {
+  transform: translateY(-3px); /* subtle lift on hover */
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
+/* Span text */
+.card span {
+  color: #666;                /* darker gray */
+  font-size: 14px;
 }
 
-.controls input,
-.controls select {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-.controls button {
-  padding: 10px 15px;
+/* Button styling */
+.details-btn {
+  margin-top: 12px;
+  padding: 8px 12px;          /* slightly bigger for easy click */
   border: none;
   border-radius: 6px;
-  background: #007bff;
+  background: #4CAF50;        /* green button */
   color: white;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+.details-btn:hover {
+  background: #45a049;        /* darker green on hover */
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.card span {
-  color: gray;
-  font-size: 14px;
-}
-
-.details-btn {
-  margin-top: 10px;
-  padding: 6px 10px;
-  border: none;
-  border-radius: 6px;
-  background: #eee;
-  cursor: pointer;
-}
-
+/* Details section */
 .details {
-  margin-top: 10px;
+  margin-top: 12px;
   text-align: left;
   font-size: 14px;
+  line-height: 1.5;           /* better readability */
 }
 
+/* Info and error messages */
 .info {
-  color: #555;
+  color: #333;               /* darker for readability */
 }
 
 .error {
-  color: red;
+  color: #e74c3c;            /* brighter red */
+  font-weight: bold;
 }
