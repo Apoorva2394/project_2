@@ -48,7 +48,6 @@ jobs:
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG }}" | base64 -d > ~/.kube/config
 
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f k8s/dev/
+      - name: Skip deploy (local cluster)
+        run: echo "Skipping kubectl apply — local cluster not reachable from CI"
 
