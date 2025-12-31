@@ -8,10 +8,11 @@ function App() {
   const [expanded, setExpanded] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
+ 
   const fetchUsers = () => {
     setLoading(true);
-    fetch("http://localhost:5000/api/users")
+    fetch(`${API_URL}/api/users`)
       .then(res => res.json())
       .then(data => {
         setUsers(data);

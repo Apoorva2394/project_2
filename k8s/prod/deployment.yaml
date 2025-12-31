@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-prod
+  labels:
+    app: app-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-prod
+  template:
+    metadata:
+      labels:
+        app: app-prod
+    spec:
+      containers:
+        - name: app
+          image: apoorva861/project2:prod
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
