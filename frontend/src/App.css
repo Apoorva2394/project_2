@@ -42,9 +42,9 @@ body {
 }
 
 .card {
-  background: white;
+  background: grey;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 25px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
