@@ -12,7 +12,7 @@ function App() {
  
   const fetchUsers = () => {
     setLoading(true);
-    fetch(`${API_URL}/api/users`)
+    fetch("http://192.168.2.3:3003/api/users")
       .then(res => res.json())
       .then(data => {
         setUsers(data);
