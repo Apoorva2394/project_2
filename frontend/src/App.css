@@ -42,21 +42,21 @@ body {
 }
 
 .card {
-  background: white;
+  background: pink;
   padding: 20px;
-  border-radius: 14px;
+  border-radius: 30px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .card span {
-  color: gray;
-  font-size: 14px;
+  color: white;
+  font-size: 25px;
 }
 
 .details-btn {
   margin-top: 10px;
   padding: 6px 10px;
-  border: none;
+  border: 2px solid black;
   border-radius: 6px;
   background: #eee;
   cursor: pointer;

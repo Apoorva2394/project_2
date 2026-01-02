@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-dev
+  template:
+    metadata:
+      labels:
+        app: app-dev
+    spec:
+      containers:
+      - name: app
+        image: apoorva861/project2:dev
+        ports:
+        - containerPort: 3001
